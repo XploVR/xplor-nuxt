@@ -1,0 +1,1 @@
+<template><svg viewBox='0 0 24 24' class='w-5 h-5'><path d='M12 22s8-5.5 8-12A8 8 0 1 0 4 10c0 6.5 8 12 8 12z' stroke='currentColor' stroke-width='2' fill='none'/><circle cx='12' cy='10' r='3' fill='currentColor'/></svg></template>

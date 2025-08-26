@@ -1,0 +1,2 @@
+<template><button type='button' :aria-checked='checked' role='switch' @click="$emit('update:checked', !checked)" :class="['relative inline-flex h-6 w-11 items-center rounded-full transition', checked ? 'bg-primary' : 'bg-muted']"><span :class="['inline-block h-5 w-5 transform rounded-full bg-white transition', checked ? 'translate-x-5' : 'translate-x-1']"></span></button></template>
+<script setup lang="ts">defineProps<{ checked?: boolean }>(); defineEmits<{(e:'update:checked', v:boolean):void}>()</script>

@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# Nuxt build outputs
+.nuxt/
+.output/
+.dist/
+.cache/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env & local config
+.env
+.env.*
+!.env.example
+.vercel/
+.next/
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

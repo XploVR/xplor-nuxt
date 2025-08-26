@@ -1,0 +1,560 @@
+<template>
+  <div class="min-h-screen bg-background">
+    <Header />
+    
+    <main>
+      <!-- Hero Section - Platform-Led, Offer-Aware -->
+      <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/aa974283-f5dc-4cca-bfc2-703fe4393e5c.png" 
+            alt="Luxury Properties Worldwide Map" 
+            class="w-full h-full object-cover" 
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        
+        <!-- FairShare Program Box - Top Right -->
+        <div class="absolute top-4 right-4 z-20 hidden md:block">
+          <Card class="bg-white/95 backdrop-blur-sm border-primary/20 max-w-xs">
+            <div class="p-4 bg-gray-700">
+              <h3 class="text-sm font-bold text-foreground mb-2">
+                <span class="text-primary">FairShare</span> Agreement
+              </h3>
+              <p class="text-xs text-muted-foreground mb-3">
+                Crew get 50% of charter commissions
+              </p>
+              <div class="flex flex-col gap-1">
+                <router-link to="/fairshare">
+                  <Button 
+                    size="sm" 
+                    class="bg-primary hover:bg-primary/90 text-primary-foreground font-medium w-full text-xs py-1"
+                  >
+                    Yacht Crew
+                  </Button>
+                </router-link>
+                <router-link to="/yacht-owners-clients">
+                  <Button 
+                    size="sm" 
+                    class="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-medium w-full text-xs py-1"
+                  >
+                    Yacht Owners
+                  </Button>
+                </router-link>
+                <router-link to="/yacht-owners-clients">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    class="font-medium w-full text-xs py-1"
+                  >
+                    Charter Clients
+                  </Button>
+                </router-link>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <h2 class="text-8xl md:text-9xl font-typografix font-bold mb-4 text-foreground">
+            xplor
+          </h2>
+          <h1 class="text-3xl md:text-5xl font-bold mb-6 font-sans text-foreground">
+            The World's Most Immersive Virtual Tour Platform
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
+            Discover and share any real-world space — from luxury yachts to boutique hotels. 
+            And if you're crew on a yacht, you could start earning through our FairShare charter program.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              class="bg-primary hover:bg-primary/90 text-xplor-grey text-lg px-8 py-3"
+              @click="openExternalLink('https://xplor.io/map')"
+            >
+              Browse Virtual Tours
+            </Button>
+            <router-link to="/fairshare-crew">
+              <Button 
+                size="lg" 
+                class="bg-xplor-yellow hover:bg-xplor-yellow/90 text-xplor-black text-lg px-8 py-3"
+              >
+                Join FairShare Crew
+              </Button>
+            </router-link>
+          </div>
+        </div>
+      </section>
+
+      <!-- Explore the World in 3D -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-foreground mb-4">Explore the World in 3D</h2>
+            <p class="text-xl text-muted-foreground">Quick filter grid with icons to tour</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+            <router-link 
+              v-for="(category, index) in spaceCategories" 
+              :key="index" 
+              :to="category.url"
+            >
+              <Card class="text-center hover:shadow-lg transition-all duration-200 group hover:bg-gradient-card cursor-pointer h-full">
+                <div class="p-6">
+                  <div class="w-16 h-16 bg-xplor-yellow rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <component :is="category.icon" class="w-8 h-8 text-xplor-black" />
+                  </div>
+                  <h3 class="text-lg font-semibold">{{ category.title }}</h3>
+                </div>
+              </Card>
+            </router-link>
+          </div>
+
+          <div class="text-center">
+            <DropdownMenu>
+              <template #trigger>
+                <Button variant="outline" size="lg" class="bg-background hover:bg-accent">
+                  <component :is="icons.Plus" class="h-5 w-5 mr-2" />
+                  More Space Categories
+                  <component :is="icons.ChevronDown" class="h-5 w-5 ml-2" />
+                </Button>
+              </template>
+              <template #content>
+                <div class="w-80 max-h-96 overflow-y-auto">
+                  <router-link 
+                    v-for="item in additionalCategories" 
+                    :key="item.path" 
+                    :to="item.path"
+                    class="block px-4 py-2 hover:bg-accent cursor-pointer"
+                  >
+                    {{ item.label }}
+                  </router-link>
+                </div>
+              </template>
+            </DropdownMenu>
+          </div>
+        </div>
+      </section>
+
+      <!-- FairShare for Charter Crew -->
+      <section class="py-20 bg-accent/20">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Crew, It's Time You Got a <span class="text-muted-foreground">FairShare</span>.
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              If you're crew on a yacht listed with Xplor for charter — either as the central agent or as a 
+              3rd-party broker — we split 50% of our net commission equally among the crew. No tiers. No favorites. Just fair.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div>
+              <div class="space-y-6">
+                <div 
+                  v-for="feature in fairShareFeatures" 
+                  :key="feature.title"
+                  class="flex items-start gap-4"
+                >
+                  <component :is="icons.Check" class="w-6 h-6 text-xplor-yellow mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 class="font-semibold text-foreground mb-1">{{ feature.title }}</h3>
+                    <p class="text-muted-foreground">{{ feature.description }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <div class="bg-card p-6 rounded-lg border">
+                  <h4 class="font-bold text-foreground mb-2">Example Payout:</h4>
+                  <p class="text-muted-foreground">6 crew members = €2,000 each from a typical charter commission</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <Card class="bg-gradient-to-br from-primary/10 to-xplor-yellow/10 border-2 border-dashed border-xplor-yellow/50">
+                <div class="p-8 text-center">
+                  <div class="space-y-6">
+                    <div class="flex items-center justify-center gap-4">
+                      <component :is="icons.DollarSign" class="w-8 h-8 text-primary" />
+                      <component :is="icons.ArrowRight" class="w-6 h-6 text-muted-foreground" />
+                      <div class="text-center">
+                        <div class="text-2xl font-bold text-primary">50%</div>
+                        <div class="text-sm text-muted-foreground">to Xplor</div>
+                      </div>
+                    </div>
+                    
+                    <div class="border-t border-dashed border-muted pt-6">
+                      <div class="flex items-center justify-center gap-4">
+                        <component :is="icons.Users" class="w-8 h-8 text-xplor-yellow" />
+                        <div class="text-center">
+                          <div class="text-2xl font-bold text-xplor-yellow">50%</div>
+                          <div class="text-sm text-muted-foreground">divided equally among crew</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <router-link to="/fairshare-eligibility">
+                <Button size="lg" variant="outline">Check Eligibility</Button>
+              </router-link>
+              <router-link to="/fairshare-crew">
+                <Button size="lg" class="bg-xplor-yellow hover:bg-xplor-yellow/90 text-xplor-black">
+                  Join FairShare Now
+                </Button>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-foreground mb-4">3 Simple Steps to Earning Your FairShare</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <Card 
+              v-for="(step, index) in howItWorksSteps" 
+              :key="index" 
+              class="text-center relative"
+            >
+              <div class="p-8">
+                <div class="w-12 h-12 bg-xplor-yellow text-xplor-black rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  {{ step.step }}
+                </div>
+                <h3 class="text-xl font-semibold text-foreground mb-3">{{ step.title }}</h3>
+                <p class="text-muted-foreground">{{ step.description }}</p>
+                <component 
+                  v-if="index < howItWorksSteps.length - 1"
+                  :is="icons.ArrowRight" 
+                  class="w-6 h-6 text-muted-foreground absolute -right-3 top-1/2 transform -translate-y-1/2 hidden md:block" 
+                />
+              </div>
+            </Card>
+          </div>
+
+          <div class="text-center">
+            <p class="text-muted-foreground italic">
+              "We handle the contracts, compliance, and payouts. You just do your job — and get rewarded."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why We Built This -->
+      <section class="py-20 bg-accent/10">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-foreground mb-6">Why We Built This</h2>
+          <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Brokers have been keeping it all for decades. We're building a platform that shares the rewards 
+            with the people who make charters magical: <span class="text-xplor-yellow font-semibold">you</span>.
+          </p>
+        </div>
+      </section>
+
+      <!-- About Xplor -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-foreground mb-6">About Xplor</h2>
+          <p class="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Xplor is the platform to find and share immersive virtual tours of any space. From yachts to homes to resorts, 
+            we're building the world's most explorable map — and helping people earn along the way.
+          </p>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="py-20 bg-gradient-to-r from-primary/10 to-xplor-yellow/10">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left">
+              <h2 class="text-4xl font-bold text-foreground mb-6">Ready to Explore?</h2>
+              <p class="text-xl text-muted-foreground mb-8">
+                Discover amazing spaces or start earning as charter crew
+              </p>
+              <Button 
+                size="lg" 
+                class="bg-primary hover:bg-primary/90 text-xplor-grey"
+                @click="openExternalLink('https://xplor.io/map')"
+              >
+                Browse Spaces on Xplor
+              </Button>
+            </div>
+            
+            <div class="text-center lg:text-left">
+              <h2 class="text-4xl font-bold text-foreground mb-6">Join FairShare</h2>
+              <p class="text-xl text-muted-foreground mb-8">
+                Charter crew members can start earning their fair share today
+              </p>
+              <router-link to="/fairshare-crew">
+                <Button size="lg" class="bg-xplor-yellow hover:bg-xplor-yellow/90 text-xplor-black">
+                  Join FairShare as Charter Crew
+                </Button>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer with Legal Clarity -->
+      <section class="py-12 bg-muted/30 border-t">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-8">
+            <p class="text-sm text-muted-foreground max-w-4xl mx-auto">
+              <strong>Legal Disclaimer:</strong> FairShare applies only to yacht charters where Xplor is the central 
+              or participating brokerage. Payouts are based on the net commission Xplor receives and are divided 
+              equally among verified crew.
+            </p>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center text-sm">
+            <Button variant="link" class="text-muted-foreground">Commission Terms PDF</Button>
+            <Button variant="link" class="text-muted-foreground">Privacy Policy</Button>
+            <Button variant="link" class="text-muted-foreground">Contact</Button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <!-- Upload Dialogs -->
+    <MuseumGalleryUploadDialog 
+      v-if="selectedCategory === 'museums-art'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <SchoolEducationUploadDialog 
+      v-if="selectedCategory === 'schools-education'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <ExperienceUploadDialog 
+      v-if="selectedCategory === 'experiences'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <CruiseShipUploadDialog 
+      v-if="selectedCategory === 'cruise-ships'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <DevelopmentUploadDialog 
+      v-if="selectedCategory === 'developments'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <GolfCourseUploadDialog 
+      v-if="selectedCategory === 'golf-courses'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <TrainTramUploadDialog 
+      v-if="selectedCategory === 'train-tram'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <UAEDevelopmentUploadDialog 
+      v-if="selectedCategory === 'uae-developments'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <RetailPopUpUploadDialog 
+      v-if="selectedCategory === 'retail-popup'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <GovHospitalUploadDialog 
+      v-if="selectedCategory === 'gov-hospital'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <RestaurantBarUploadDialog 
+      v-if="selectedCategory === 'restaurant-bar'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <SetsStagesVenuesUploadDialog 
+      v-if="selectedCategory === 'sets-stages'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <HeritageWorshipUploadDialog 
+      v-if="selectedCategory === 'heritage-worship'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <MerchantShippingUploadDialog 
+      v-if="selectedCategory === 'merchant-shipping'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <ManufacturingFacilityUploadDialog 
+      v-if="selectedCategory === 'manufacturing'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <MaritimeInfrastructureUploadDialog 
+      v-if="selectedCategory === 'maritime-infrastructure'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <OfficesShowroomsStudiosUploadDialog 
+      v-if="selectedCategory === 'offices-showrooms'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+    <SportsStadiumsThemeParksUploadDialog 
+      v-if="selectedCategory === 'sports-theme-parks'"
+      :open="uploadDialogOpen" 
+      @update:open="setUploadDialogOpen" 
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref, reactive } from 'vue'
+import { useIcons } from '@/composables/useIcons'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+import Button from '@/components/ui/Button.vue'
+import Card from '@/components/ui/Card.vue'
+import DropdownMenu from '@/components/ui/DropdownMenu.vue'
+
+// Import all dialog components
+import MuseumGalleryUploadDialog from '@/components/Dialogs/MuseumGalleryUploadDialog.vue'
+import SchoolEducationUploadDialog from '@/components/Dialogs/SchoolEducationUploadDialog.vue'
+import AviationUploadDialog from '@/components/Dialogs/AviationUploadDialog.vue'
+import ExperienceUploadDialog from '@/components/Dialogs/ExperienceUploadDialog.vue'
+import CruiseShipUploadDialog from '@/components/Dialogs/CruiseShipUploadDialog.vue'
+import DevelopmentUploadDialog from '@/components/Dialogs/DevelopmentUploadDialog.vue'
+import GolfCourseUploadDialog from '@/components/Dialogs/GolfCourseUploadDialog.vue'
+import TrainTramUploadDialog from '@/components/Dialogs/TrainTramUploadDialog.vue'
+import UAEDevelopmentUploadDialog from '@/components/Dialogs/UAEDevelopmentUploadDialog.vue'
+import RetailPopUpUploadDialog from '@/components/Dialogs/RetailPopUpUploadDialog.vue'
+import GovHospitalUploadDialog from '@/components/Dialogs/GovHospitalUploadDialog.vue'
+import RestaurantBarUploadDialog from '@/components/Dialogs/RestaurantBarUploadDialog.vue'
+import SetsStagesVenuesUploadDialog from '@/components/Dialogs/SetsStagesVenuesUploadDialog.vue'
+import HeritageWorshipUploadDialog from '@/components/Dialogs/HeritageWorshipUploadDialog.vue'
+import MerchantShippingUploadDialog from '@/components/Dialogs/MerchantShippingUploadDialog.vue'
+import ManufacturingFacilityUploadDialog from '@/components/Dialogs/ManufacturingFacilityUploadDialog.vue'
+import MaritimeInfrastructureUploadDialog from '@/components/Dialogs/MaritimeInfrastructureUploadDialog.vue'
+import OfficesShowroomsStudiosUploadDialog from '@/components/Dialogs/OfficesShowroomsStudiosUploadDialog.vue'
+import SportsStadiumsThemeParksUploadDialog from '@/components/Dialogs/SportsStadiumsThemeParksUploadDialog.vue'
+
+const icons = useIcons()
+
+const uploadDialogOpen = ref(false)
+const selectedCategory = ref("")
+
+const spaceCategories = reactive([
+  {
+    title: "Yachts",
+    icon: icons.Ship,
+    url: "/yacht-brokerage"
+  },
+  {
+    title: "Villas & Homes",
+    icon: icons.Home,
+    url: "/real-estate"
+  },
+  {
+    title: "Hotels & Resorts",
+    icon: icons.Building,
+    url: "/hotels"
+  },
+  {
+    title: "Restaurants & Bars",
+    icon: icons.Utensils,
+    url: "/restaurants-bars"
+  },
+  {
+    title: "Cars & Showrooms",
+    icon: icons.Car,
+    url: "/cars-vehicles-2"
+  },
+  {
+    title: "Jets & Aviation",
+    icon: icons.Plane,
+    url: "/jets-aviation"
+  }
+])
+
+const howItWorksSteps = reactive([
+  {
+    step: "1",
+    title: "Yacht is listed with Xplor for charter",
+    description: "Your yacht gets added to our charter platform"
+  },
+  {
+    step: "2",
+    title: "Xplor books a charter as central or 3rd-party agent",
+    description: "We handle the booking process and client management"
+  },
+  {
+    step: "3",
+    title: "You (the crew) get paid a fair share — automatically",
+    description: "50% of our commission is split equally among all crew"
+  }
+])
+
+const fairShareFeatures = reactive([
+  {
+    title: "Available for charter deals only",
+    description: "Only applies to yacht charter bookings through our platform"
+  },
+  {
+    title: "Applies if Xplor is central agent or 3rd-party broker",
+    description: "Whether we're the main agent or working with other brokers"
+  },
+  {
+    title: "Payout split equally among all active crew",
+    description: "Every crew member on the chartered vessel gets an equal share"
+  },
+  {
+    title: "Automatic and transparent",
+    description: "No backdoor deals — everything is handled automatically"
+  }
+])
+
+const additionalCategories = reactive([
+  { path: "/museums-galleries", label: "Museums & Art Galleries" },
+  { path: "/education-and-schools", label: "Schools & Education" },
+  { path: "/experiences-and-attractions", label: "Experiences & Attractions" },
+  { path: "/cruise-ships", label: "Cruise Ships" },
+  { path: "/developments", label: "Developments" },
+  { path: "/golf-courses", label: "Golf Courses" },
+  { path: "/trains-and-trams", label: "Train & Tram" },
+  { path: "/uae-developments", label: "UAE Developments" },
+  { path: "/retail-and-popups", label: "Retail & Pop-Up" },
+  { path: "/government-and-healthcare", label: "Government & Hospital" },
+  { path: "/sets-stages-and-venues", label: "Sets, Stages & Venues" },
+  { path: "/heritage-and-worship", label: "Heritage & Worship" },
+  { path: "/merchant-shipping", label: "Merchant Shipping" },
+  { path: "/manufacturing-facilities", label: "Manufacturing Facility" },
+  { path: "/maritime-infrastructure", label: "Maritime Infrastructure" },
+  { path: "/offices-showrooms-studios", label: "Offices, Showrooms & Studios" },
+  { path: "/sports-stadiums-theme-parks", label: "Sports Stadiums & Theme Parks" }
+])
+
+const setUploadDialogOpen = (value) => {
+  uploadDialogOpen.value = value
+}
+
+const openExternalLink = (url) => {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
+</script>
+

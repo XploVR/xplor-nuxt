@@ -1,0 +1,1 @@
+<template><textarea class='w-full min-h-[120px] rounded-md border border-input bg-background p-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring' v-bind='$attrs'></textarea></template><script setup lang='ts'></script>
