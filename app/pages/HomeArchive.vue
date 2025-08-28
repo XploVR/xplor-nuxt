@@ -1,5 +1,4 @@
 <template>
-<template>
   <div class="min-h-screen bg-background">
     <Header />
     
@@ -7,7 +6,7 @@
       <!-- Hero Section -->
       <section class="relative h-[60vh] sm:h-[70vh] flex items-start pt-8 sm:pt-12 overflow-hidden">
         <div class="absolute inset-0 z-0">
-          <img src="/lovable-uploads/aa974283-f5dc-4cca-bfc2-703fe4393e5c.png" alt="Luxury Properties Worldwide Map" class="w-full h-full object-cover" />
+          <img src="/uploads/aa974283-f5dc-4cca-bfc2-703fe4393e5c.png" alt="Luxury Properties Worldwide Map" class="w-full h-full object-cover" />
           <div class="absolute inset-0 bg-black/10"></div>
         </div>
         

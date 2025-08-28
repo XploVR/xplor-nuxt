@@ -57,11 +57,11 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import MapboxLocationPicker from './MapboxLocationPicker.vue'
-import Card from 'ui/card/index.vue'
-import CardHeader from 'ui/card/CardHeader.vue'
-import CardTitle from 'ui/card/CardTitle.vue'
-import CardDescription from 'ui/card/CardDescription.vue'
-import CardContent from 'ui/card/CardContent.vue'
+import Card from '@/components/ui/card/Card.vue'
+import CardHeader from '@/components/ui/card/CardHeader.vue'
+import CardTitle from '@/components/ui/card/CardTitle.vue'
+import CardDescription from '@/components/ui/card/CardDescription.vue'
+import CardContent from '@/components/ui/card/CardContent.vue'
 
 const tabs = [
   { id:'basic-info', label:'Basic Info' },

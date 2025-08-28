@@ -5,11 +5,18 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "nuxt": "^3.12.0",
-    "@pinia/nuxt": "^0.5.1"
+    "@pinia/nuxt": "^0.5.1",
+    "lucide-vue-next": "^0.542.0",
+    "nuxt": "3.18.1",
+    "radix-vue": "^1.9.17",
+    "vue-sonner": "^2.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
   }
 }
-

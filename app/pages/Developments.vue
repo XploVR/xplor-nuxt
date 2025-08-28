@@ -208,7 +208,7 @@
 
 <script setup>
 import { ref, markRaw } from 'vue'
-import Button from '@/components/ui/button/Button.vue'
+import Button from '~/components/ui/button/Button.vue'
 import { Card, CardContent } from '@/components/ui/card'
 import DevelopmentUploadDialog from '@/components/DevelopmentUploadDialog.vue'
 import { 

@@ -60,8 +60,8 @@
 </template>
 
 <script setup lang="ts">
-import Card from 'ui/card/index.vue'
-import CardContent from 'ui/card/CardContent.vue'
+import Card from '@/components/ui/card/Card.vue'
+import CardContent from '@/components/ui/card/CardContent.vue'
 
 function openMatterport(){ window.open('https://matterport.com', '_blank') }
 function watchDemo(){ alert('Demo video placeholder') }

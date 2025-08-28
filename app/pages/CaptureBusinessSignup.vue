@@ -134,9 +134,6 @@ import { Textarea } from '@/components/ui/textarea'
 // import { Separator } from '@/components/ui/separator'
 import { DollarSign, Clock, MapPin, Shield, Award, Users, CheckCircle, Building } from 'lucide-vue-next'
 import { toast } from 'vue-sonner'
-```
-import { DollarSign, Clock, MapPin, Shield, Award, Users, CheckCircle, Building } from 'lucide-vue-next'
-import { toast } from 'vue-sonner'
 
 const requirements = [
   'Professional 3D camera equipment (Pro3, Pro2, or equivalent)',

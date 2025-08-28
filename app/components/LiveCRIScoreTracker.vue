@@ -25,10 +25,10 @@
 <script setup lang="ts">
 import { computed, reactive, watch } from 'vue'
 
-const Card = (await import('ui/card/index.vue')).default || {}
-const CardHeader = (await import('ui/card/CardHeader.vue')).default || {}
-const CardTitle = (await import('ui/card/CardTitle.vue')).default || {}
-const CardContent = (await import('ui/card/CardContent.vue')).default || {}
+const Card = (await import('@/components/ui/card/Card.vue')).default || {}
+const CardHeader = (await import('@/components/ui/card/CardHeader.vue')).default || {}
+const CardTitle = (await import('@/components/ui/card/CardTitle.vue')).default || {}
+const CardContent = (await import('@/components/ui/card/CardContent.vue')).default || {}
 
 type CRIScoreBreakdown = {
   experience: number; certifications: number; positionWeight: number; navigation: number;

@@ -208,7 +208,7 @@
 <script setup>
 import { ref, h } from 'vue';
 import { Head } from '@vueuse/head';
-import Button from '@/components/ui/button/Button.vue';
+import Button from '~/components/ui/button/Button.vue';
 import Card from '@/components/ui/card/Card.vue';
 import CardContent from '@/components/ui/card/CardContent.vue';
 import { Badge } from '@/components/ui/badge'

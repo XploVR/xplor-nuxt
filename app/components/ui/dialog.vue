@@ -1,2 +1,0 @@
-<template><Teleport to='body'><div v-if='open' class='fixed inset-0 z-50 flex items-center justify-center'><div class='absolute inset-0 bg-black/50' @click="$emit('update:open', false)"></div><div class='relative z-10 w-[95vw] max-w-lg rounded-xl bg-card text-card-foreground shadow-medium'><div class='border-b p-4 font-semibold'><slot name='title'>Dialog</slot></div><div class='p-4'><slot /></div></div></div></Teleport></template>
-<script setup lang="ts">defineProps<{ open: boolean }>(); defineEmits<{(e:'update:open', v:boolean):void}>()</script>

@@ -312,7 +312,7 @@ import {
   GraduationCap, 
   MapPin 
 } from 'lucide-vue-next'
-import Button from '@/components/ui/button/Button.vue'
+import Button from '~/components/ui/button/Button.vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import AviationUploadDialog from '@/components/AviationUploadDialog.vue'
 import jetsAviationHero from '@/assets/jets-aviation-hero.jpg'

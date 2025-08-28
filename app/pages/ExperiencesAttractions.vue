@@ -195,7 +195,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Button from '@/components/ui/button/Button.vue'
+import Button from '~/components/ui/button/Button.vue'
 import { Card, CardContent } from '@/components/ui/card'
 import ExperienceUploadDialog from '@/components/ExperienceUploadDialog.vue'
 import { 

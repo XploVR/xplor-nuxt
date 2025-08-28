@@ -313,8 +313,8 @@ import {
   Users, 
   Star 
 } from 'lucide-vue-next'
-import Button from '@/components/ui/button.vue'
-import Card from '@/components/ui/card.vue'
+import Button from '@/components/ui/button/Button.vue'
+import Card from '@/components/ui/card/Card.vue'
 import CardContent from '@/components/ui/card-content.vue'
 import CardDescription from '@/components/ui/card-description.vue'
 import CardHeader from '@/components/ui/card-header.vue'

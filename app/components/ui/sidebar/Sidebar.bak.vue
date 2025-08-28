@@ -10,7 +10,7 @@ import { computed, ref, reactive, provide, inject, onMounted, onUnmounted, watch
 import { cva, type VariantProps } from 'class-variance-authority'
 import { PanelLeft } from 'lucide-vue-next'
 import { useIsMobile } from '@/hooks/usemobile.js'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
@@ -71,7 +71,7 @@ export function useSidebar() {
 <script setup lang="ts">
 import { computed, ref, provide, onMounted, onUnmounted, type CSSProperties } from 'vue'
 import { useIsMobile } from '@/hooks/use-mobile'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 interface Props {
@@ -225,7 +225,7 @@ defineExpose({ rootRef })
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useSidebar } from './sidebar'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 
 interface Props {
@@ -269,7 +269,7 @@ defineExpose({ rootRef })
 import { ref } from 'vue'
 import { PanelLeft } from 'lucide-vue-next'
 import { useSidebar } from './sidebar'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Button } from '@/components/ui/button'
 
 interface Props {
@@ -314,7 +314,7 @@ defineExpose({ buttonRef })
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useSidebar } from './sidebar'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -345,7 +345,7 @@ defineExpose({ buttonRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -373,7 +373,7 @@ defineExpose({ mainRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Input } from '@/components/ui/input'
 
 interface Props {
@@ -401,7 +401,7 @@ defineExpose({ inputRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -428,7 +428,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -453,7 +453,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Separator } from '@/components/ui/separator'
 
 interface Props {
@@ -484,7 +484,7 @@ defineExpose({ separatorRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -511,7 +511,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -543,7 +543,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -579,7 +579,7 @@ defineExpose({ compRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -609,7 +609,7 @@ defineExpose({ compRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -636,7 +636,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -663,7 +663,7 @@ defineExpose({ ulRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -717,7 +717,7 @@ defineExpose({ liRef })
 import { ref } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { useSidebar } from './sidebar'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import {
   Tooltip,
   TooltipContent,
@@ -793,7 +793,7 @@ defineExpose({ buttonRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -833,7 +833,7 @@ defineExpose({ buttonRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -871,7 +871,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Skeleton } from '@/components/ui/skeleton'
 
 interface Props {
@@ -910,7 +910,7 @@ defineExpose({ divRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   className?: string
@@ -962,7 +962,7 @@ defineExpose({ liRef })
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface Props {
   asChild?: boolean
